@@ -6,6 +6,7 @@
 #include "memlayout.h"
 #include "mmu.h"
 #include "proc.h"
+//#include "syscall.c"
 
 int
 sys_fork(void)
@@ -89,3 +90,25 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+// New system call function
+// Returns date WCU was founded
+int
+sys_wcupa(void)
+{
+  return 1871; // Year WCU was founded
+}
+
+int
+sys_getreadcount(void)
+{
+  #ifndef SYSCALL_C
+  #define SYSCALL_C
+  //#include "syscall.c"
+  //int count;
+  #endif
+  extern int count;
+  return count;
+  //#endif /* SYSCALL_C */
+}
+

@@ -29,3 +29,5 @@ SYSCALL(getpid)
 SYSCALL(sbrk)
 SYSCALL(sleep)
 SYSCALL(uptime)
+SYSCALL(wcupa) // Added interface for wcupa system call
+SYSCALL(getreadcount)
